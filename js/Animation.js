@@ -1,7 +1,9 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function setUpAnimation() {
+    gsap.registerPlugin(ScrollTrigger);
+
     gsap.from('.title', {
         scrollTrigger: {
             trigger: ".title",

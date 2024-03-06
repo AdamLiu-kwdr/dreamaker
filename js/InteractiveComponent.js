@@ -1,6 +1,4 @@
 export function setUpComponents() {
-    console.log("setting up animations")
-
     // image-track slider
     const projectSection = document.querySelector("#projects")
     const projectTrack = document.getElementById("project-track")
