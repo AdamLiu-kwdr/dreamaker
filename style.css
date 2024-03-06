@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -54,6 +60,8 @@ header {
 .container {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    z-index: 99;
+    position: absolute;
     height: 100dvh;
     width: 100dvw;
 }
@@ -64,7 +72,7 @@ section {
 }
 
 #intro {
-    background-color: black;
+    background: none;
     overflow: hidden;
     display: flex;
     justify-content: start;
@@ -98,7 +106,6 @@ section {
 }
 
 #projects {
-    background-color: black;
     overflow: hidden;
     position: relative;
 }
@@ -172,7 +179,6 @@ section {
 }
 
 #workhistory {
-    background-color: black;
     overflow: hidden;
     position: relative;
 }
@@ -216,7 +222,6 @@ section {
 }
 
 #bottom {
-    background-color: black;
     overflow: hidden;
     display: flex;
     flex-direction: column;
