@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5vmin;
+    padding: 5vh 0 5px 0;
+}
+
+.nav-link {
+    color: grey;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: lightgray;
+}
+
+.nav-link.active {
+    color: white;
+}
+
+#progress-bar {
+    --progress: 0;
+    width: var(--progress);
+    height: 3px;
+    background-color: lightgoldenrodyellow;
+}
+
+.container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100dvh;
+    width: 100dvw;
+}
+
+section {
+    height: 100dvh;
+    scroll-snap-align: start;
+}
+
+#intro {
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#intro>.titles {
+    position: relative;
+    left: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.dropAnime {
+    overflow: hidden;
+}
+
+.titles h1 {
+    font-size: 8vw;
+    color: transparent;
+    background-color: white;
+    background-image: linear-gradient(45deg, #ffffff, #ffe181);
+    background-size: 100%;
+    background-clip: text;
+}
+
+.titles h3 {
+    color: grey;
+    font-size: 1.5vw;
+}
+
+#projects {
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+}
+
+#project-track {
+    display: flex;
+    gap: 6vmin;
+    position: absolute;
+    user-select: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
+}
+
+#project-track>.project {
+    width: 40vmin;
+    height: 70vmin;
+    position: relative;
+}
+
+.project>.hover {
+    opacity: 0;
+    transition: 0.3s;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.project>.hover:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.project h3 {
+    color: lightgray;
+    font-size: 4vmin;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.project p {
+    color: white;
+    font-size: 2vmin;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 90%;
+    line-height: 1.5rem;
+}
+
+.project a {
+    color: lightgray;
+    font-size: 2vmin;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+.project .project-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 100% left;
+}
+
+.proj-back:hover {
+    filter: brightness(50%);
+}
+
+#workhistory {
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+}
+
+#experience-track {
+    display: flex;
+    gap: 15vmin;
+    position: absolute;
+    user-select: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
+}
+
+#experience-track>.experience {
+    width: 50vmin;
+    height: 70vmin;
+    position: relative;
+    border-left: lightgoldenrodyellow solid 2px;
+    padding-left: 1%;
+    padding-top: 0.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vmin;
+}
+
+.experience h3 {
+    color: gray;
+    font-size: 2vmin;
+}
+
+.experience h1 {
+    color: white;
+    font-size: 5vmin;
+}
+
+.experience p {
+    color: white;
+    font-size: 2.5vmin;
+    word-wrap: break-word;
+}
+
+#bottom {
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#bottom h1 {
+    font-size: 6vw;
+    color: transparent;
+    background-color: white;
+    background-image: linear-gradient(45deg, #ffffff, #ffe181);
+    background-size: 100%;
+    background-clip: text;
+}
+
+#bottom #social-links {
+    display: flex;
+    width: fit-content;
+    gap: 4vmin;
+    margin-top: 8vh;
+    padding-top: 2vh;
+    border-top: #ffffff solid 1px;
+}
+
+#bottom a {
+    color: lightgray;
+    font-size: 2vmin;
+}

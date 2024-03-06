@@ -5,11 +5,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" type=“module” defer></script>
 </head>
 
 <body>
-    <h1>hello</h1>
+    <header>
+        <nav>
+            <ul class="nav-items">
+                <li><a href="#intro" class="nav-link active">Intro</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#workhistory" class="nav-link">Experiences</a></li>
+                <li><a href="#bottom" class="nav-link">Contact</a></li>
+            </ul>
+            <div id="progress-bar">
+            </div>
+        </nav>
+    </header>
+    <div class="container" id="scroll-container">
+        <section id="intro">
+            <div class="titles">
+                <div class="dropAnime">
+                    <h3 class="title">Hello, I am</h3>
+                </div>
+                <div class="dropAnime">
+                    <h1 class="title">Adam Liu</h1>
+                </div>
+                <div class="dropAnime">
+                    <h3 class="title">I make dreams come true.</h3>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <div id="project-track" data-mouse-down-at="0" data-drag-percentage="0">
+                <div class="project">
+                    <div class="hover">
+                        <h3>65's Comics</h3>
+                        <p>Comic gallery built for my artist client showcasing artwork. Comes with a backstage area for
+                            gallery and personal information/theme management. <br> Built with NextJS for frontend and
+                            Go gin
+                            framework with MySQL as backend.</p>
+                        <a href="#">Visit ></a>
+                    </div>
+                    <img class="project-background" src="assests/comichub-screen.png" draggable="false">
+                </div>
+                <div class="project">
+                    <div class="hover">
+                        <h3>Comic Hub</h3>
+                        <p>Comic Hub was originally built as a hobby project for showcasing artwork. <br>
+                            Using Nextjs as
+                            frontend and Flask+MariaDB as backend. Comic Hub went through a major rewrite for
+                            production-ready quality and became 65's comic.</p>
+
+                    </div>
+                    <img class="project-background" src="assests/65scomic-screen.jpg" draggable="false">
+                </div>
+                <div class="project">
+                    <div class="hover">
+                        <h3>Kitty Collector</h3>
+                        <p>Cat video catalog built for Kitty Finder. <br> Allowing Kitty Finder's video to be organized
+                            and
+                            browsed by time range. Built with Python, Flask, Dash framework, and MongoDB.</p>
+                        <a href="#">Visit ></a>
+                    </div>
+                    <img class="project-background" src="assests/kc2-gallery-corp.png" draggable="false">
+                </div>
+                <div class="project">
+                    <div class="hover">
+                        <h3>Kitty Finder</h3>
+                        <p>An AI cat recorder for my frequent cat guests in my front yard. <br> Powered by Tensorflow,
+                            Raspberry Pi, and Google's Efficient Net. The AI monitors the front yard and records the
+                            cat's movement when they visit.</p>
+
+                    </div>
+                    <img class="project-background" src="assests/kc1-cat.jpg" draggable="false">
+                </div>
+                <div class="project">
+                    <div class="hover">
+                        <h3>Alanger Coffee</h3>
+                        <p>Online shop for a local coffee shop built during my university. <br> Utilizing ASP.Net Core
+                            and
+                            MySql. The online shop helped the coffee shop grow its customer base across Taiwan.</p>
+
+                    </div>
+                    <img class="project-background" src="assests/alanger-coffee.jpg" draggable="false">
+                </div>
+            </div>
+        </section>
+        <section id="workhistory">
+            <div id="experience-track" data-mouse-down-at="0" data-drag-percentage="0">
+                <div class="experience">
+                    <p>I love solving problems! Since my university era, I have been using my software
+                        development experience to engineer solutions that answers people's demands. <br>
+                        <br>
+                        My software engineering skills were self-taught. From Python and Flask to Javascript and
+                        NextJs. I'm always excited to learn more new technical
+                        knowledge. It's fun, and it helps me bring out a more robust system for the user.
+                    </p>
+                </div>
+                <div class="experience">
+                    <h3>2024-2023</h3>
+                    <h1>Personalized Art Websites</h1>
+                    <p>Since 2023, I've been accepting cases for building websites for my artist clients. Helping them
+                        show off their artwork and personality. With personal customized functionality that simply
+                        couldn't be achieved by art platforms.</p>
+                </div>
+                <div class="experience">
+                    <h3>2022-2021</h3>
+                    <h1>Microsoft</h1>
+                    <p>As a Support Engineer at Microsoft, I provided technical assistance to customers using Azure
+                        Database for MySQL. Utilizing my problem-solving skills to ensure that all customer inquiries
+                        and issues were resolved efficiently and effectively.</p>
+                </div>
+                <div class="experience">
+                    <h3>2021-2020</h3>
+                    <h1>Aurora Group</h1>
+                    <p>Developing mobile app backend with ASP.Net framework with SQL Server, which provided insights
+                        into issues and historical customer data to over 2000 maintenance engineers. And Maintaining the
+                        internal ERP system, which processed over 1 million requests daily and ingests 200 requests per
+                        second during peak hours, also using the ASP.Net framework with SQL Server.</p>
+                </div>
+                <div class="experience">
+                    <h3>2017-2019</h3>
+                    <h1>Coffee online-shop</h1>
+                    <p>During my sophomore year of University, a local coffee shop had previously
+                        attempted to build an online shop but failed. So during my project,
+                        I help find the source of the problem, We found out the complicated UI and
+                        poor service reliability of the previous hosting service provider as a major source
+                        of problems.<br>
+                        <br>
+                        Utilizing ASP.Net Core and MySql, and hosting the website on AWS EC2. The online shop helped the
+                        coffee shop growing its customer base across entire Taiwan.
+                    </p>
+                </div>
+                <div class="experience">
+                    <h3>2016-2017</h3>
+                    <h1>NovaTech</h1>
+                    <p>During the 2016 and 2017 summer vacations, I had the chance to practicing training
+                        oversea in the US. I helped design a Human Machine Interface demonstration project
+                        and the supporting logic with Lua for their smart substation remote terminal unity.
+                        An industry-leading power grid automation product,
+                        capable of remotely operate substations and provide real-time statics like feeder load
+                        and transformer status.</p>
+                </div>
+            </div>
+        </section>
+        <section id="bottom">
+            <div class="dropAnime">
+                <h1 class="end-title">Build your Dream</h1>
+            </div>
+            <div id="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">CakeResume</a>
+                <a href="#">GitHub</a>
+            </div>
+        </section>
+    </div>
 </body>
 
 </html>
