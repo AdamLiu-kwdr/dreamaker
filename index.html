@@ -13,10 +13,10 @@
     <header>
         <nav>
             <ul class="nav-items">
-                <li><a href="#intro" class="nav-link active">Intro</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#workhistory" class="nav-link">Experiences</a></li>
-                <li><a href="#bottom" class="nav-link">Contact</a></li>
+                <li><a id="intro" class="nav-link active">Intro</a></li>
+                <li><a id="projects" class="nav-link">Projects</a></li>
+                <li><a id="workhistory" class="nav-link">Experiences</a></li>
+                <li><a id="end" class="nav-link">Contact</a></li>
             </ul>
             <div id="progress-bar">
             </div>
@@ -24,7 +24,7 @@
     </header>
     <canvas id="bg"></canvas>
     <div class="container" id="scroll-container">
-        <section id="intro">
+        <section id="intro-section">
             <div class="titles">
                 <div class="dropAnime">
                     <h3 class="title">Hello, I am</h3>
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </section>
-        <section id="projects">
+        <section id="projects-section">
             <div id="project-track" data-mouse-down-at="0" data-drag-percentage="0">
                 <div class="project">
                     <div class="hover">
@@ -93,14 +93,14 @@
                 </div>
             </div>
         </section>
-        <section id="workhistory">
+        <section id="workhistory-section">
             <div id="experience-track" data-mouse-down-at="0" data-drag-percentage="0">
                 <div class="experience">
                     <p>I love solving problems! Since my university era, I have been using my software
                         development experience to engineer solutions that answers people's demands. <br>
                         <br>
                         My software engineering skills were self-taught. From Python and Flask to Javascript and
-                        NextJs. I'm always excited to learn more new technical
+                        bottom NextJs. I'm always excited to learn more new technical
                         knowledge. It's fun, and it helps me bring out a more robust system for the user.
                     </p>
                 </div>
@@ -151,7 +151,7 @@
                 </div>
             </div>
         </section>
-        <section id="bottom">
+        <section id="end-section">
             <div class="dropAnime">
                 <h1 class="end-title">Build your Dream</h1>
             </div>

@@ -50,4 +50,19 @@ export function setUpAnimation() {
         y: '-100%',
         ease: "power3.out",
     })
+
+    // const navLinks = document.querySelectorAll(".nav-link");
+    // const sections = document.querySelectorAll("section");
+    // navLinks.forEach((nav) => {
+    //     ScrollTrigger.create({
+    //         trigger: `#${nav.id}-section`,
+    //         scroller: "#scroll-container",
+    //         start: "bottom top",
+    //         onEnter: () => {
+    //             console.log(nav)
+    //         },
+    //         onLeave: () => nav.classList.remove('active')
+    //     })
+    // })
+
 };

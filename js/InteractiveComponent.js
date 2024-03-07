@@ -1,11 +1,14 @@
+import gsap from "gsap";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+
 export function setUpComponents() {
     // image-track slider
-    const projectSection = document.querySelector("#projects")
+    const projectSection = document.querySelector("#projects-section")
     const projectTrack = document.getElementById("project-track")
     createDraggableTrack(projectSection, projectTrack)
 
     // experience-track slider
-    const historySection = document.querySelector("#workhistory")
+    const historySection = document.querySelector("#workhistory-section")
     const experienceTrack = document.getElementById("experience-track")
     createDraggableTrack(historySection, experienceTrack)
 
@@ -21,21 +24,28 @@ export function setUpComponents() {
     // Nav-links
     const navLinks = document.querySelectorAll(".nav-link");
     const sections = document.querySelectorAll("section");
-    let currentSection = "home";
+    let currentSection = "intro";
     scrollContainer.addEventListener('scroll', () => {
         sections.forEach(section => {
             if ((scrollContainer.scrollTop + window.innerHeight / 2) >= section.offsetTop) {
-                currentSection = section.id;
+                currentSection = section.id.replace('-section', '');
             }
         })
 
         navLinks.forEach((nav) => {
-            if (nav.href.indexOf(`#${currentSection}`) > -1) {
+            if (nav.id.indexOf(`${currentSection}`) > -1) {
                 document.querySelector('.active').classList.remove('active');
                 nav.classList.add('active');
             };
         });
     });
+
+    gsap.registerPlugin(ScrollToPlugin)
+    navLinks.forEach((nav) => {
+        nav.addEventListener('click', () => {
+            gsap.to(scrollContainer, { duration: 0.8, scrollTo: `#${nav.id}-section` })
+        })
+    })
 }
 
 function createDraggableTrack(dragSection, trackElement) {
