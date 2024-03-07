@@ -200,6 +200,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1vmin;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .experience h3 {
