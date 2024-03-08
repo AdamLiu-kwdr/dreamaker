@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { getFresnelMat } from "./fresnelMaterial.js";
+import gsap from 'gsap';
 
 export function setUpEarthBackground() {
     const scene = new THREE.Scene();
@@ -19,19 +20,19 @@ export function setUpEarthBackground() {
     const loader = new THREE.TextureLoader();
     const earthGeometry = new THREE.IcosahedronGeometry(1, 12);
     const earthMaterial = new THREE.MeshPhongMaterial({
-        map: loader.load("/textures/earth_color.jpeg"),
-        specularMap: loader.load("/textures/specular_map.jpeg"),
-        bumpMap: loader.load("/textures/topography.jpeg"),
+        map: loader.load("/textures/earth_color.jpg"),
+        specularMap: loader.load("/textures/specular_map.jpg"),
+        bumpMap: loader.load("/textures/topography.jpg"),
         bumpScale: 2,
         emissive: 0xfff5c9,
-        emissiveMap: loader.load("/textures/earth_nightlights.jpeg"),
+        emissiveMap: loader.load("/textures/earth_nightlights.jpg"),
         emissiveIntensity: 0.2,
     });
     const earth = new THREE.Mesh(earthGeometry, earthMaterial)
     earthGroup.add(earth);
 
     const cloudsMat = new THREE.MeshStandardMaterial({
-        map: loader.load("/textures/earth_clouds.jpeg"),
+        map: loader.load("/textures/earth_clouds.jpg"),
         blending: THREE.AdditiveBlending,
         opacity: 0.6,
     })
@@ -50,7 +51,7 @@ export function setUpEarthBackground() {
     sunLight.position.set(-2, 0, 2);
     scene.add(sunLight);
 
-    camera.position.z = 4;
+    camera.position.z = 20;
     function animate() {
         requestAnimationFrame(animate);
         earth.rotation.y += 0.002;
@@ -59,4 +60,6 @@ export function setUpEarthBackground() {
     }
 
     animate();
+
+    gsap.to(camera.position, { duration: 2, z: 4, ease: "power2.out" });
 }
