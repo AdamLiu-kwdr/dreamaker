@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'Kode Mono';
+    src: url("/font/KodeMono-VariableFont_wght.ttf");
+    font-weight: 400 700;
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Kode Mono', sans-serif;
 }
 
 canvas {
@@ -139,7 +147,7 @@ section {
 
 .project>.hover:hover {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .project h3 {
@@ -195,8 +203,7 @@ section {
     height: 70vmin;
     position: relative;
     border-left: lightgoldenrodyellow solid 2px;
-    padding-left: 1%;
-    padding-top: 0.5%;
+    padding: 0.5% 1%;
     display: flex;
     flex-direction: column;
     gap: 1vmin;

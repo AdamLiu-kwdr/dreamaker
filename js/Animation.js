@@ -12,8 +12,8 @@ export function setUpAnimation() {
         },
         duration: 1.5,
         y: '-100%',
-        ease: "power2.out",
-        stagger: 0.2,
+        ease: "power4.out",
+        stagger: 0.3,
     })
 
     gsap.from('.project', {
