@@ -14,6 +14,18 @@ export function setUpEarthBackground() {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
 
+    window.addEventListener('resize', onWindowResize, false);
+
+    function onWindowResize() {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+    }
+
+
     const earthGroup = new THREE.Group();
     earthGroup.rotation.z = -23.4 * Math.PI / 180;
 
