@@ -34,7 +34,7 @@ export function setUpEarthBackground() {
     const cloudsMat = new THREE.MeshStandardMaterial({
         map: loader.load("/textures/earth_clouds.jpg"),
         blending: THREE.AdditiveBlending,
-        opacity: 0.6,
+        opacity: 0.7,
     })
     const earthClouds = new THREE.Mesh(earthGeometry, cloudsMat);
     earthClouds.scale.setScalar(1.01);
@@ -51,7 +51,9 @@ export function setUpEarthBackground() {
     sunLight.position.set(-2, 0, 2);
     scene.add(sunLight);
 
-    camera.position.z = 20;
+    // camera.position.set(-0.5, 0.7, 2);
+    camera.position.set(1, 1, 3);
+    camera.lookAt(new THREE.Vector3(0, 0, 0))
     function animate() {
         requestAnimationFrame(animate);
         earth.rotation.y += 0.002;
@@ -61,5 +63,5 @@ export function setUpEarthBackground() {
 
     animate();
 
-    gsap.to(camera.position, { duration: 2, z: 4, ease: "power2.out" });
+    // gsap.to(camera.position, { duration: 2, z: 4, ease: "power2.out" });
 }
