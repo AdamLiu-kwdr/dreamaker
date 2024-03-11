@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { getFresnelMat } from "./fresnelMaterial.js";
+import getStarfield from './getStarField.js';
 import gsap from 'gsap';
 
 export function setUpEarthBackground() {
@@ -63,17 +64,45 @@ export function setUpEarthBackground() {
     sunLight.position.set(-2, 0, 2);
     scene.add(sunLight);
 
-    // camera.position.set(-0.5, 0.7, 2);
-    camera.position.set(1, 1, 3);
-    camera.lookAt(new THREE.Vector3(0, 0, 0))
+    const stars = getStarfield({ numStars: 2000 });
+    scene.add(stars);
+
+    // gsap.fromTo(camera.position, { x: 1, y: 1, z: 3, }, {
+    //     scrollTrigger: {
+    //         trigger: "#project-track",
+    //         scroller: "#scroll-container",
+    //         start: "top bottom"
+    //     },
+    //     duration: 2,
+    //     x: -3.5, y: 1, z: -1,
+    //     ease: "power3.inOut",
+    //     onUpdate: function () {
+    //         camera.lookAt(new THREE.Vector3(0, 0, 0))
+    //     }
+    // })
+
+    camera.position.set(0, 0, 20)
     function animate() {
         requestAnimationFrame(animate);
         earth.rotation.y += 0.002;
         earthClouds.rotation.y += 0.0021;
+        stars.rotation.y -= 0.0002;
         renderer.render(scene, camera);
     }
 
     animate();
 
+    var moveCamera = gsap.timeline()
+    moveCamera.to(camera.position, {
+        duration: 2, z: 4, onUpdate: function () {
+            camera.lookAt(new THREE.Vector3(0, 0, 0))
+        }
+    })
+    moveCamera.to(camera.position, {
+        duration: 2, x: 1, y: 1, z: 3, ease: "power2.inOut",
+        onUpdate: function () {
+            camera.lookAt(new THREE.Vector3(0, 0, 0))
+        }
+    })
     // gsap.to(camera.position, { duration: 2, z: 4, ease: "power2.out" });
 }
