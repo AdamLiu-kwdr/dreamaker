@@ -32,19 +32,19 @@ export function setUpEarthBackground() {
     const loader = new THREE.TextureLoader();
     const earthGeometry = new THREE.IcosahedronGeometry(1, 12);
     const earthMaterial = new THREE.MeshPhongMaterial({
-        map: loader.load("/textures/earth_color.jpg"),
-        specularMap: loader.load("/textures/specular_map.jpg"),
-        bumpMap: loader.load("/textures/topography.jpg"),
+        map: loader.load("textures/earth_color.jpg"),
+        specularMap: loader.load("textures/specular_map.jpg"),
+        bumpMap: loader.load("textures/topography.jpg"),
         bumpScale: 2,
         emissive: 0xfff5c9,
-        emissiveMap: loader.load("/textures/earth_nightlights.jpg"),
+        emissiveMap: loader.load("textures/earth_nightlights.jpg"),
         emissiveIntensity: 0.2,
     });
     const earth = new THREE.Mesh(earthGeometry, earthMaterial)
     earthGroup.add(earth);
 
     const cloudsMat = new THREE.MeshStandardMaterial({
-        map: loader.load("/textures/earth_clouds.jpg"),
+        map: loader.load("textures/earth_clouds.jpg"),
         blending: THREE.AdditiveBlending,
         opacity: 0.7,
     })
