@@ -49,8 +49,31 @@ export function setUpComponents() {
 }
 
 function createDraggableTrack(dragSection, trackElement) {
-    dragSection.onmousedown = e => { trackElement.dataset.mouseDownAt = e.clientX; }
-    dragSection.onmousemove = e => {
+    // dragSection.addEventListener("touchstart", evt => {
+    //     const touches = evt.changedTouches;
+    //     trackElement.dataset.mouseDownAt = touches[0].clientX;
+    // });
+    dragSection.addEventListener("mousedown", e => {
+        trackElement.dataset.mouseDownAt = e.clientX;
+    })
+
+    // dragSection.addEventListener("touchmove", e => {
+    //     if (trackElement.dataset.mouseDownAt === "0") return;
+
+    //     const touches = e.changedTouches;
+    //     const touchDelta = parseFloat(trackElement.dataset.mouseDownAt) - touches[0].clientX;
+    //     trackElement.dataset.percentage = touchDelta;
+
+    //     trackElement.animate({ transform: `translate(${touchDelta}px,-50%)` },
+    //         { duration: 1200, fill: "forwards" });
+
+    //     for (const image of trackElement.getElementsByClassName("project-background")) {
+    //         image.animate({ objectPosition: `${100 + touchDelta}px center` },
+    //             { duration: 1200, fill: "forwards" });
+    //     }
+
+    // })
+    dragSection.addEventListener("mousemove", e => {
         if (trackElement.dataset.mouseDownAt === "0") return;
         const mouseDelta = parseFloat(trackElement.dataset.mouseDownAt) - e.clientX,
             maxDelta = window.innerWidth / 2;
@@ -68,11 +91,15 @@ function createDraggableTrack(dragSection, trackElement) {
             image.animate({ objectPosition: `${100 + nextPercentage}% center` },
                 { duration: 1200, fill: "forwards" });
         }
-    }
-    dragSection.onmouseup = () => {
+    })
+
+    function handelDraggingEnd() {
         trackElement.dataset.mouseDownAt = "0";
         trackElement.dataset.dragPercentage = trackElement.dataset.percentage;
     }
+    dragSection.addEventListener("mouseup", handelDraggingEnd);
+    // dragSection.addEventListener("touchend", handelDraggingEnd);
+    // dragSection.addEventListener("touchcancel", handelDraggingEnd);
 }
 
 

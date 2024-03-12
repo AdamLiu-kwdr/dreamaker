@@ -256,3 +256,91 @@ section {
     color: lightgray;
     font-size: 2vmin;
 }
+
+@media screen and (max-width:960px) {
+    .nav-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100svw;
+        gap: 0;
+        padding: 1.5svh 1vw 1.5svh 1vw;
+    }
+
+    #intro-section {
+        background: none;
+        overflow: hidden;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    #intro-section>.titles {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .titles h1 {
+        font-size: 16vw;
+        color: transparent;
+        background-color: white;
+        background-image: linear-gradient(45deg, #ffffff, #ffe181);
+        background-size: 100%;
+        background-clip: text;
+    }
+
+    .titles h3 {
+        color: white;
+        font-size: 5vw;
+    }
+
+    #projects-section {
+        overflow: scroll;
+        position: relative;
+        scrollbar-width: none;
+    }
+
+    #project-track {
+        padding-right: 10vw;
+        left: 10vw;
+        transform: translate(0, -50%);
+    }
+
+    #project-track>.project {
+        width: 70vw;
+        height: 70svh;
+        position: relative;
+    }
+
+    .project>.hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 5% 5%;
+    }
+
+    .project h3 {
+        top: auto;
+        left: auto;
+        font-size: 2rem;
+        position: relative;
+        margin-bottom: 5%;
+    }
+
+    .project p {
+        top: auto;
+        left: auto;
+        font-size: 1rem;
+        position: relative;
+    }
+
+    .project a {
+        font-size: 2rem;
+    }
+
+    .project .project-background {
+        object-position: 50% 0%;
+    }
+}
