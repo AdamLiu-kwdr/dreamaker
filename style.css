@@ -222,7 +222,7 @@ section {
 
 .experience p {
     color: white;
-    font-size: 2.5vmin;
+    font-size: 2vmin;
     word-wrap: break-word;
 }
 
@@ -358,7 +358,7 @@ section {
     }
 
     #end-section #social-links {
-        margin-top: 8vh;
+        margin-top: 4vh;
         padding-top: 2vh;
     }
 }
