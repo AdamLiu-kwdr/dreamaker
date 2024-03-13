@@ -49,37 +49,16 @@ export function setUpComponents() {
 }
 
 function createDraggableTrack(dragSection, trackElement) {
-    // dragSection.addEventListener("touchstart", evt => {
-    //     const touches = evt.changedTouches;
-    //     trackElement.dataset.mouseDownAt = touches[0].clientX;
-    // });
+    dragSection.addEventListener("touchstart", evt => {
+        const touches = evt.changedTouches;
+        trackElement.dataset.mouseDownAt = touches[0].clientX;
+    });
     dragSection.addEventListener("mousedown", e => {
         trackElement.dataset.mouseDownAt = e.clientX;
     })
 
-    // dragSection.addEventListener("touchmove", e => {
-    //     if (trackElement.dataset.mouseDownAt === "0") return;
-
-    //     const touches = e.changedTouches;
-    //     const touchDelta = parseFloat(trackElement.dataset.mouseDownAt) - touches[0].clientX;
-    //     trackElement.dataset.percentage = touchDelta;
-
-    //     trackElement.animate({ transform: `translate(${touchDelta}px,-50%)` },
-    //         { duration: 1200, fill: "forwards" });
-
-    //     for (const image of trackElement.getElementsByClassName("project-background")) {
-    //         image.animate({ objectPosition: `${100 + touchDelta}px center` },
-    //             { duration: 1200, fill: "forwards" });
-    //     }
-
-    // })
-    dragSection.addEventListener("mousemove", e => {
-        if (trackElement.dataset.mouseDownAt === "0") return;
-        const mouseDelta = parseFloat(trackElement.dataset.mouseDownAt) - e.clientX,
-            maxDelta = window.innerWidth / 2;
-
-        const precentage = (mouseDelta / maxDelta) * -100,
-            unconstrainedNextPercentage = parseFloat(trackElement.dataset.dragPercentage) + precentage,
+    function dragTrackByPrecentage(dragPrecentage) {
+        const unconstrainedNextPercentage = parseFloat(trackElement.dataset.dragPercentage) + dragPrecentage,
             nextPercentage = Math.max(Math.min(unconstrainedNextPercentage, 0), -100);
 
         trackElement.dataset.percentage = nextPercentage;
@@ -91,6 +70,28 @@ function createDraggableTrack(dragSection, trackElement) {
             image.animate({ objectPosition: `${100 + nextPercentage}% center` },
                 { duration: 1200, fill: "forwards" });
         }
+    }
+
+    //Listen toucmove on trackElement + preventdefault() prevents browser scrolls vertically to other section while dragging
+    // but still allows scrolling vertically outside trackelement.
+    dragSection.addEventListener("touchmove", e => {
+        if (trackElement.dataset.mouseDownAt === "0") return;
+
+        const touches = e.changedTouches;
+        const touchDelta = parseFloat(trackElement.dataset.mouseDownAt) - touches[0].clientX,
+            maxDelta = window.innerWidth,
+            precentage = (touchDelta / maxDelta) * -100;
+
+        dragTrackByPrecentage(precentage);
+    })
+
+    dragSection.addEventListener("mousemove", e => {
+        if (trackElement.dataset.mouseDownAt === "0") return;
+        const mouseDelta = parseFloat(trackElement.dataset.mouseDownAt) - e.clientX,
+            maxDelta = window.innerWidth / 2,
+            precentage = (mouseDelta / maxDelta) * -100;
+
+        dragTrackByPrecentage(precentage);
     })
 
     function handelDraggingEnd() {
@@ -98,8 +99,8 @@ function createDraggableTrack(dragSection, trackElement) {
         trackElement.dataset.dragPercentage = trackElement.dataset.percentage;
     }
     dragSection.addEventListener("mouseup", handelDraggingEnd);
-    // dragSection.addEventListener("touchend", handelDraggingEnd);
-    // dragSection.addEventListener("touchcancel", handelDraggingEnd);
+    dragSection.addEventListener("touchend", handelDraggingEnd);
+    dragSection.addEventListener("touchcancel", handelDraggingEnd);
 }
 
 
